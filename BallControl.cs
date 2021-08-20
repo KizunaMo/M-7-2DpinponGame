@@ -6,20 +6,21 @@ public class BallControl : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float maxVelocity = 20f;
+    private SpriteRenderer spriteRenderer;
+
+    public ChangeColor red;
+    public ChangeColor green;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         Invoke("BallGo", 2f);
         
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,11 +51,42 @@ public class BallControl : MonoBehaviour
                     rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
                     Debug.Log("MAX");
                 }
-                    
-                
             }
-            
         }
+
+        if(collision.collider.tag == "Red")
+        {
+            if (red.isRed)
+            {
+                spriteRenderer.color = new Color(1f, 0.19f, 0f, 1f);
+            }
+            else if (red.isGreen)
+            {
+                spriteRenderer.color = new Color(0f, 1f, 0.02f, 1f);//Green
+            }
+            else
+            {
+                spriteRenderer.color = new Color(0f, 0.97f, 0.85f, 1f);//BallColor
+            }
+        }
+
+        if (collision.collider.tag == "Green")
+        {
+            if (green.isRed)
+            {
+                spriteRenderer.color = new Color(1f, 0.19f, 0f, 1f);
+            }
+            else if (green.isGreen)
+            {
+                spriteRenderer.color = new Color(0f, 1f, 0.02f, 1f);//Green
+            }
+            else
+            {
+                spriteRenderer.color = new Color(0f, 0.97f, 0.85f, 1f);//BallColor
+            }
+        }
+           
+
     }
 
 
