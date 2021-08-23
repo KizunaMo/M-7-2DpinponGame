@@ -15,18 +15,14 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.position = new Vector2(rb.position.x, yPosition);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
             float xFollow = tragetFollow.position.x - transform.position.x;
             rb.AddForce(new Vector2(xFollow * followSpeed, 0f), ForceMode2D.Impulse);
-        
-       
-        
     }
 
   

@@ -11,6 +11,7 @@ public class PlayerControls : MonoBehaviour
 
     private Rigidbody2D rb;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +23,22 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKey(moveLeft))
         {
-            rb.velocity = new Vector2 (moveSpeed * -1f * Time.deltaTime, 0f);
+            rb.velocity = new Vector2(moveSpeed * -1f * Time.deltaTime, 0f);
         }
         else if (Input.GetKey(moveRight))
         {
-            rb.velocity = new Vector2 (moveSpeed * Time.deltaTime, 0f);
+            rb.velocity = new Vector2(moveSpeed * Time.deltaTime, 0f);
         }
         else
         {
             rb.velocity = new Vector2(0f, 0f);
         }
 
+        
     }
+
+  
+
+   
 
 }

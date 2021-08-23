@@ -23,7 +23,7 @@ public class GameStep : MonoBehaviour
     void Start()
     {
         topWall.size = new Vector2(cam.ScreenToWorldPoint(new Vector3(Screen.width * 2f, 0f, 0f)).x, 1f);//ScreenToWorldPoint 將螢幕座標轉換成世界座標
-        topWall.offset = new Vector2(0f, cam.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f)).y + 0.5f);//Screen.hright(螢幕最高的位置)
+        topWall.offset = new Vector2(0f, cam.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f)).y + 0.6f);//Screen.hright(螢幕最高的位置)
 
         bottomWall.size = new Vector2(cam.ScreenToWorldPoint(new Vector3(Screen.width * 2f, 0f, 0f)).x, 1f);
         bottomWall.offset = new Vector2(0f, cam.ScreenToWorldPoint(new Vector3(0f, 0f, 0f)).y - 0.5f);
@@ -34,17 +34,11 @@ public class GameStep : MonoBehaviour
         rightWall.size = new Vector2(1f, cam.ScreenToWorldPoint(new Vector3(0f, Screen.height * 2f, 0f)).y);
         rightWall.offset = new Vector2(cam.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x + 0.5f, 0f);
 
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
         screenMousePosition = Input.mousePosition;
-
-
-
-
     }
 }

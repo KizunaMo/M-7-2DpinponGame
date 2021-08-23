@@ -5,11 +5,12 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float maxVelocity = 20f;
+    public float maxVelocity = 20f;
     private SpriteRenderer spriteRenderer;
 
     public ChangeColor red;
     public ChangeColor green;
+    public bool isGreen, isRed, isBlue; 
 
     
 
@@ -23,13 +24,22 @@ public class BallControl : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (rb.velocity.magnitude > maxVelocity)
+        {
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
+            Debug.Log("MAX");
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player01")
         {
             int r = Random.Range(0, 4);
             int randomShoot = Random.Range(0, 9);
-            float jumpForce = Random.Range(1f, 12f);
+            float jumpForce = Random.Range(1f, 9f);
             {
                 if (r < 2 && randomShoot<=4)
                 {
@@ -45,28 +55,30 @@ public class BallControl : MonoBehaviour
                     Debug.Log(randomShoot);
                     rb.velocity = new Vector2(rb.velocity.x - randomShoot, rb.velocity.y);
                 }
-
-                if (rb.velocity.magnitude > maxVelocity)
-                {
-                    rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
-                    Debug.Log("MAX");
-                }
             }
         }
-
         if(collision.collider.tag == "Red")
         {
             if (red.isRed)
             {
-                spriteRenderer.color = new Color(1f, 0.19f, 0f, 1f);
+                spriteRenderer.color = new Color(1f, 0.19f, 0f, 1f);//red
+                isRed = true;
+                isGreen = false;
+                isBlue = false;
             }
             else if (red.isGreen)
             {
                 spriteRenderer.color = new Color(0f, 1f, 0.02f, 1f);//Green
+                isRed = false;
+                isGreen = true;
+                isBlue = false;
             }
             else
             {
                 spriteRenderer.color = new Color(0f, 0.97f, 0.85f, 1f);//BallColor
+                isRed = false;
+                isGreen = false;
+                isBlue = true;
             }
         }
 
@@ -75,21 +87,26 @@ public class BallControl : MonoBehaviour
             if (green.isRed)
             {
                 spriteRenderer.color = new Color(1f, 0.19f, 0f, 1f);
+                isRed = true;
+                isGreen = false;
+                isBlue = false;
             }
             else if (green.isGreen)
             {
                 spriteRenderer.color = new Color(0f, 1f, 0.02f, 1f);//Green
+                isRed = false;
+                isGreen = true;
+                isBlue = false;
             }
             else
             {
                 spriteRenderer.color = new Color(0f, 0.97f, 0.85f, 1f);//BallColor
+                isRed = false;
+                isGreen = false;
+                isBlue = true;
             }
         }
-           
-
     }
-
-
 
     void BallGo()
     {

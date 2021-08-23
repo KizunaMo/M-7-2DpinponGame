@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeColor : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    public bool isGreen, isRed, isBallColor;
+    public bool isGreen, isRed, isBlue;
 
 
     private void Start()
@@ -25,24 +25,30 @@ public class ChangeColor : MonoBehaviour
                 spriteRenderer.color = new Color(1f, 0.19f, 0f, 1f);//Red
                 isRed = true;
                 isGreen = false;
-                isBallColor = false;
+                isBlue = false;
             }
             else if(changeColor >3 && changeColor <7)
             {
                 spriteRenderer.color = new Color(0f, 1f, 0.02f, 1f);//Green
                 isRed = false;
                 isGreen = true;
-                isBallColor = false;
+                isBlue = false;
             }
             else
             {
-                spriteRenderer.color = new Color(0f, 0.97f, 0.85f, 1f);//BallColor
+                spriteRenderer.color = new Color(0f, 0.97f, 0.85f, 1f);//Blue
                 isRed = false;
                 isGreen = false;
-                isBallColor = true;
+                isBlue = true;
             }
         }
+    }
 
+    public void IsNotGreenOrBlue()
+    {
+        isRed = true;
+        isGreen = false;
+        isBlue = false;
     }
    
            
