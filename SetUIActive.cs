@@ -7,6 +7,7 @@ public class SetUIActive : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject startTeachButton;
+    [SerializeField] private GameObject pressText;
 
     private void Update()
     {
@@ -19,6 +20,7 @@ public class SetUIActive : MonoBehaviour
         {
             dialoguePanel.SetActive(true);
             startTeachButton.SetActive(false);
+            pressText.SetActive(false);
         }
         else
         {

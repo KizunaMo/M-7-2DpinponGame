@@ -16,7 +16,7 @@ public class ChooseRed : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            if (!ballControlColor.isRed && !ballControlColor.isBlue && ballControlColor.isGreen)
+            if (!ballControlColor._isRed && !ballControlColor._isBlue && ballControlColor._isGreen)
             {
                 Destroy(gameObject);
             }

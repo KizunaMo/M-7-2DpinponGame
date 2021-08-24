@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseGreen : MonoBehaviour
+public class ChooseBlue : MonoBehaviour
 {
 
     [SerializeField] private BallControl ballControlColor;
@@ -17,10 +17,9 @@ public class ChooseGreen : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            if (ballControlColor._isRed && !ballControlColor._isBlue && !ballControlColor._isGreen)
+            if (ballControlColor._isRed || ballControlColor._isBlue || ballControlColor._isGreen)
             {
-                Debug.Log("¬O¬õ¦â");
-                Destroy(gameObject);
+                Debug.Log("CTACH");
             }
 
         }
