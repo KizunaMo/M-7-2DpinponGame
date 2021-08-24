@@ -130,6 +130,10 @@ public class BallControl : MonoBehaviour
             }
         }
 
+        if(collision.gameObject.tag == "Player01")
+        {
+            AudioManager.instance.Play("Catch");
+        }
        
     }
 
@@ -162,6 +166,7 @@ public class BallControl : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Dead"))
         {
+            AudioManager.instance.Play("Fail");
             rb.transform.position = new Vector3(0f, 2f, 0f);
             rb.velocity = new Vector2(0f, 0f);
             dead = true;

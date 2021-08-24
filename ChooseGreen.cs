@@ -19,6 +19,7 @@ public class ChooseGreen : MonoBehaviour
         {
             if (ballControlColor._isRed && !ballControlColor._isBlue && !ballControlColor._isGreen)
             {
+                AudioManager.instance.Play("WrongColor");
                 Debug.Log("¬O¬õ¦â");
                 Destroy(gameObject);
             }

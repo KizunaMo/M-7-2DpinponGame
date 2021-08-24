@@ -49,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisPlayNextSentence()
     {
+        AudioManager.instance.Play("Continue");
         if(queueSentences.Count == 0)
         {
             EndDialogue();

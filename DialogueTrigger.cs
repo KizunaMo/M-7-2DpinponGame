@@ -18,6 +18,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        AudioManager.instance.Play("StartConversation");
         DialogueManager.instance.StartDialogue(dialogue);
         triggered = true;
     }

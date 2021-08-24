@@ -10,6 +10,7 @@ public class GameOverCanvas : MonoBehaviour
 
     public void RetryButton()
     {
+        AudioManager.instance.Play("StartConversation");
         SceneManager.LoadScene("Retry");
     }
 

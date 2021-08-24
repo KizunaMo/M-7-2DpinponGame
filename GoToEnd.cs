@@ -10,6 +10,7 @@ public class GoToEnd : MonoBehaviour
 
     public void End()
     {
+        AudioManager.instance.Play("StartConversation");
         FadeCanvas.SetActive(true);
         LoadEndLevel();
     }

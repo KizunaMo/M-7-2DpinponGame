@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        AudioManager.instance.Play("Score");
     }
 
    public void GameOverUI()

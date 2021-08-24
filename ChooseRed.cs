@@ -18,6 +18,7 @@ public class ChooseRed : MonoBehaviour
         {
             if (!ballControlColor._isRed && !ballControlColor._isBlue && ballControlColor._isGreen)
             {
+                AudioManager.instance.Play("StartConversation");
                 Destroy(gameObject);
             }
 
